@@ -9,15 +9,23 @@ const range = player.querySelector('.player__slider');
 
 // Build out function
 function togglePlay() {
-    // const method = video.paused ? 'play' : 'pause';
-    // video[method]();
-    if(video.paused) {
-        video.play();
-    } else {
-        video.pause();
-    }
+    const method = video.paused ? 'play' : 'pause';
+    video[method]();
+    // if(video.paused) {
+    //     video.play();
+    // } else {
+    //     video.pause();
+    // }
 }
+function updateButton() {
+    const icon = this.paused ? '►' : '❚ ❚';
+    console.log(icon);
+    toggle.textContent = icon;
+  }
 
 // Hook up the event listeners
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
+
 toggle.addEventListener('click', togglePlay);
